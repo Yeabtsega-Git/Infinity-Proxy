@@ -1,0 +1,12 @@
+services:
+  nginx:
+    image: nginx:stable
+    container_name: infinity-nginx
+    network_mode: host
+    restart: unless-stopped
+    volumes:
+      - ./conf/default.conf:/etc/nginx/conf.d/default.conf:ro
+      # If your Nginx configuration uses TLS certificates, mount their
+      # directory read-only too. Adjust the host path to match your server.
+      # Example:
+      # - /etc/letsencrypt:/etc/letsencrypt:ro
